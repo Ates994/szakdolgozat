@@ -23,8 +23,8 @@ public class UserService {
         newUser.setForeName(request.getForeName());
         newUser.setSurName(request.getSurName());
         newUser.setEmail(request.getEmail().trim().toLowerCase());
-        if (request.getRole() != null) {
-            newUser.setRole(request.getRole());
+        if (request.getUserRole() != null) {
+            newUser.setUserRole(request.getUserRole());
         }
         return repository.save(newUser);
     }
@@ -48,8 +48,8 @@ public class UserService {
     public User updateUser(Long id, UpdateUserRequest request) {
         User editUser = findUser(id);
 
-        if (request.getRole() != null){
-            editUser.setRole(request.getRole());
+        if (request.getUserRole() != null){
+            editUser.setUserRole(request.getUserRole());
         }
 
         editUser.setForeName(request.getForeName());
@@ -65,8 +65,8 @@ public class UserService {
         editUser.setAddress(request.getAddress());
         editUser.setPhoneNumber(request.getPhoneNumber());
 
-        if (request.getBeltRank() != null){
-            editUser.setBeltRank(request.getBeltRank());
+        if (request.getUserBeltRank() != null){
+            editUser.setUserBeltRank(request.getUserBeltRank());
         }
 
         return repository.save(editUser);

@@ -2,15 +2,15 @@ package hu.kido.backend.dto;
 
 import lombok.Getter;
 import lombok.Setter;
-import hu.kido.backend.entity.enums.Role;
-import hu.kido.backend.entity.enums.BeltRank;
+import hu.kido.backend.entity.enums.UserRole;
+import hu.kido.backend.entity.enums.UserBeltRank;
 import java.time.LocalDate;
 
 @Getter
 @Setter
 public class UpdateUserRequest {
 
-    private Role role;
+    private UserRole userRole;
     private String foreName;
     private String surName;
     private LocalDate birthDate;
@@ -19,5 +19,5 @@ public class UpdateUserRequest {
     private String city;
     private String address;
     private String phoneNumber;
-    private BeltRank beltRank;
+    private UserBeltRank userBeltRank;
 }

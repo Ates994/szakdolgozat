@@ -3,7 +3,7 @@ package hu.kido.backend.entity.enums;
 import lombok.Getter;
 
 @Getter
-public enum BeltRank {
+public enum UserBeltRank {
     NO_KYU("No kyu"),
     KYU_10("10. kyu"),
     KYU_9("9. kyu"),
@@ -24,7 +24,7 @@ public enum BeltRank {
 
     private final String displayName;
 
-    BeltRank(String displayName) {
+    UserBeltRank(String displayName) {
         this.displayName = displayName;
     }
 }
