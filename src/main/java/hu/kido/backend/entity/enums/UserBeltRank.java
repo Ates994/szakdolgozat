@@ -21,6 +21,8 @@ public enum UserBeltRank {
     DAN_4("4. dan"),
     DAN_5("5. dan"),
     DAN_6("6. dan");
+    //7 dan, 8 dan, színt rendelni
+    //felhasználó oldalán, vagy a profilklpen
 
     private final String displayName;
 

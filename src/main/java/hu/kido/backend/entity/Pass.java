@@ -1,6 +1,5 @@
 package hu.kido.backend.entity;
 
-import hu.kido.backend.entity.enums.PassValidityType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,16 +16,10 @@ public class Pass {
     private Long id;
 
     private String name;
-
-    @ManyToOne
-    private TrainingType trainingType;
-
     private Integer price;
     private Boolean active = true;
 
-    @Enumerated(EnumType.STRING)
-    private PassValidityType passValidityType;
+    @ManyToOne
+    private Event event;
 
-    private Integer passValidityLength;
-    private Integer passOccasions;
 }

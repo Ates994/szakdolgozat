@@ -34,8 +34,10 @@ public class User {
     private String city;
     private String address;
     private String phoneNumber;
+    private String motherName;
+    private Boolean adult;
 
     @Enumerated(EnumType.STRING)
-    private UserBeltRank userBeltRank = UserBeltRank.NO_KYU;
+    private UserBeltRank userBeltRank = UserBeltRank.NO_KYU; //Admin állítja be az övet
 
 }

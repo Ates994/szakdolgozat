@@ -5,6 +5,7 @@ import lombok.Getter;
 @Getter
 public enum UserRole {
     ADMIN("Admin"),
+    MODERATOR("Moderator"), //Tanár, pl Shihan, aki tud létrehozni órákat és órákra jelentkeztetni
     MEMBER("Member");
 
     private final String displayName;
