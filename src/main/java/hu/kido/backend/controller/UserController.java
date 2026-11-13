@@ -1,7 +1,3 @@
-/*A UserController-ben tehát első körben egyetlen metódus kell:
-fogadja a kérés törzsét, meghívja a userService létrehozó metódusát, és visszaadja a létrehozott usert.
-Később ugyanide jön a többi user-végpont (listázás, egy user lekérése, módosítás, törlés), mind ugyanilyen vékonyan.
-*/
 package hu.kido.backend.controller;
 
 import hu.kido.backend.dto.CreateUserRequest;

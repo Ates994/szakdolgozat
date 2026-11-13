@@ -1,5 +1,6 @@
 package hu.kido.backend.service;
 import hu.kido.backend.dto.CreatePassRequest;
+import hu.kido.backend.dto.UpdatePassRequest;
 import hu.kido.backend.entity.Pass;
 import hu.kido.backend.repository.PassRepository;
 import org.springframework.http.HttpStatus;
@@ -12,35 +13,43 @@ import java.util.List;
 public class PassService {
 
     private final PassRepository repository;
+    private final EventService eventService;
 
-    private PassService(PassRepository repository){
+    public PassService(PassRepository repository, EventService eventService){
         this.repository = repository;
+        this.eventService = eventService;
     }
 
-    private Pass createPass(CreatePassRequest request){
+    public Pass createPass(CreatePassRequest request){
         Pass newPass = new Pass();
         newPass.setName(request.getName());
         newPass.setPrice(request.getPrice());
-        newPass.setEvent(request.getEvent());
+        newPass.setEvent(eventService.findEvent(request.getEventId()));
 
         return repository.save(newPass);
     }
 
-    private Pass findPass(Long id){
+    public Pass findPass(Long id){
         Pass pass = repository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Pass not found!"));
         return pass;
     }
 
-    private List<Pass> findAllPass(){
+    public List<Pass> findAllPass(){
         return repository.findAll();
     }
 
-    private void deletePass(Long id){
+    public void deletePass(Long id){
         repository.deleteById(id);
     }
 
-    private Pass updatePass(Long id, ){
+    public Pass updatePass(Long passId, UpdatePassRequest request){
+        Pass editPass = findPass(passId);
+        editPass.setName(request.getName());
+        editPass.setPrice(request.getPrice());
+        editPass.setActive(request.getActive());
+        editPass.setEvent(eventService.findEvent(request.getEventId()));
+        return repository.save(editPass);
 
     }
 }
