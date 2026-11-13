@@ -30,9 +30,8 @@ public class PassService {
     }
 
     public Pass findPass(Long id){
-        Pass pass = repository.findById(id)
+        return repository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Pass not found!"));
-        return pass;
     }
 
     public List<Pass> findAllPass(){

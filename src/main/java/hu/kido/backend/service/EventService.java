@@ -16,9 +16,10 @@ public class EventService {
     }
 
     public Event findEvent(Long id){
-        Event event = repository.findById(id)
+        return repository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Event not found!"));
-        return event;
+
+
     }
 
 }
